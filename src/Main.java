@@ -27,10 +27,20 @@ public class Main {
         return score;
     }
 
+    private static double multiplierLog(ArrayList<Integer> args) {
+        double score = 0;//initialize the values
+        double multiplier = 1;//multiplier is exponential
+        for (int i = 0; i < args.size(); i++) {//add score and increase multiplier exponentially
+            score += args.get(i) * multiplier;
+            multiplier += multiplier / (1 + Math.log(multiplier));
+        }
+        return Math.floor(score);
+    }
+
     public static void main(String[] args) {
         int exit = 0;
         ArrayList<Integer> scores = new ArrayList<>();//get list to pass the methods with varargs
-        System.out.println("Press 1 for original, 2 for multiplier");
+        System.out.println("Press 1 for original, 2 for multiplier, 3 for multiplier with exponential growth");
         Scanner sc = new Scanner(System.in);//get input
         int mode = sc.nextInt();//get input for mode
         while (exit != 1) {
@@ -47,7 +57,8 @@ public class Main {
                 if (number == 2) {
                     scores.add(0);//reset combo to 1
                 }
-            } else if (mode == 2) {//score multiplier mode - enter 1 to 9
+            }
+            if (mode == 2) {//score multiplier mode - enter 1 to 9
                 System.out.println("Enter 1-9 to add score and increase multiplier, 0 to end");
                 int number = sc.nextInt();//get input and then get the first digit of integer input
                 if (number == 0) {
@@ -56,6 +67,17 @@ public class Main {
                 } else {
                     int value = Character.getNumericValue(String.valueOf(Math.abs(Math.max(1, number))).charAt(0));//get the numeric value between 1 and 9
                     scores.add(value);//add the score and increase multiplier by 1
+                }
+            }
+            if (mode == 3) {//score multiplier mode with exponential growth - enter 1 to 9
+                System.out.println("Enter 1-9 to add score and increase multiplier, 0 to end");
+                int number = sc.nextInt();//get input and then get the first digit of integer input
+                if (number == 0) {
+                    exit = 1;//exit the program
+                    System.out.println("Score: " + multiplierLog(scores));//print the final score
+                } else {
+                    int value = Character.getNumericValue(String.valueOf(Math.abs(Math.max(1, number))).charAt(0));//get the numeric value between 1 and 9
+                    scores.add(value);//add the score and increase multiplier exponentially
                 }
             }
         }
