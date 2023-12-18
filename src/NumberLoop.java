@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class NumberLoop {
     private static int score(ArrayList<Integer> args) {
         int score = 0;// initialize the values
         int combo = 0;
