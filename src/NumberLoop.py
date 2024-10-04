@@ -41,5 +41,5 @@ if (mode == 1) | (mode == 2):
 if mode == 1:
     print("Score: " + str(multiplier(*values)))
 
-if mode == 2:
+elif mode == 2:
     print("Score: " + str(math.floor(multiplier_log(*values))))
