@@ -2,25 +2,25 @@ import math
 
 
 def multiplier(*args):
-    out = 0
+    score = 0
     multi = 1
     values = list(args)
     for value in values:
-        out += value * multi  # increase multiplier by 1 every time
+        score += value * multi  # increase multiplier by 1 every time
         multi += 1
-    return out
+    return score
 
 
 def multiplier_log(*args):
-    out = 0
+    score = 0
     multi = 1.0
     values = list(args)
     for value in values:
-        out += value * multi
+        score += value * multi
         multi += multi / (
             1 + math.log(multi)
         )  # increase multiplier exponentially every time
-    return out
+    return score
 
 
 values = []
