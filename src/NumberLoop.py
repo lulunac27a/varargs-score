@@ -24,7 +24,7 @@ def multiplier_log(*args):
 
 
 values = []
-exit = 0
+exit = False
 
 mode = int(
     input(
@@ -32,11 +32,11 @@ mode = int(
     )
 )
 if (mode == 1) | (mode == 2):
-    while exit != 1:
+    while not exit:
         valueOf = int(input("Enter a number: "))
         values.append(int(str(valueOf)[:1]))  # get the first digit of entered value
         if valueOf == 0:
-            exit = 1
+            exit = True
 
 if mode == 1:
     print("Score: " + str(multiplier(*values)))
