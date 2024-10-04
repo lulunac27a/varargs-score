@@ -38,17 +38,17 @@ public class NumberLoop {
     }
 
     public static void main(String[] args) {
-        int exit = 0;
+        boolean exit = false;
         ArrayList<Integer> scores = new ArrayList<>();// get list to pass the methods with varargs
         System.out.println("Press 1 for original, 2 for multiplier, 3 for multiplier with exponential growth");
         Scanner sc = new Scanner(System.in);// get input
         int mode = sc.nextInt();// get input for mode
-        while (exit != 1) {
+        while (!exit) {
             if (mode == 1) {// score and combo mode - enter 1 and 2
                 System.out.println("Press 1 to increase combo and increase score, 2 to reset combo, 0 to end");
                 int number = sc.nextInt();// get input for 0, 1 or 2
                 if (number == 0) {
-                    exit = 1;// exit the program
+                    exit = true;// exit the program
                     System.out.println("Score: " + score(scores));// print the final score
                 }
                 if (number == 1) {
@@ -62,7 +62,7 @@ public class NumberLoop {
                 System.out.println("Enter 1-9 to add score and increase multiplier, 0 to end");
                 int number = sc.nextInt();// get input and then get the first digit of integer input
                 if (number == 0) {
-                    exit = 1;// exit the program
+                    exit = true;// exit the program
                     System.out.println("Score: " + multiplier(scores));// print the final score
                 } else {
                     int value = Character.getNumericValue(String.valueOf(Math.abs(Math.max(1, number))).charAt(0));// get
@@ -80,7 +80,7 @@ public class NumberLoop {
                 System.out.println("Enter 1-9 to add score and increase multiplier, 0 to end");
                 int number = sc.nextInt();// get input and then get the first digit of integer input
                 if (number == 0) {
-                    exit = 1;// exit the program
+                    exit = true;// exit the program
                     System.out.println("Score: " + multiplierLog(scores));// print the final score
                 } else {
                     int value = Character.getNumericValue(String.valueOf(Math.abs(Math.max(1, number))).charAt(0));// get
