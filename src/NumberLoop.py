@@ -11,7 +11,7 @@ def multiplier(*args):
     return out
 
 
-def multiplierLog(*args):
+def multiplier_log(*args):
     out = 0
     multi = 1.0
     values = list(args)
@@ -42,4 +42,4 @@ if mode == 1:
     print("Score: " + str(multiplier(*values)))
 
 if mode == 2:
-    print("Score: " + str(math.floor(multiplierLog(*values))))
+    print("Score: " + str(math.floor(multiplier_log(*values))))
