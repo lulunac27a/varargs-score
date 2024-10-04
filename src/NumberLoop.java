@@ -95,6 +95,7 @@ public class NumberLoop {
                 }
             }
         }
+        sc.close();// close the scanner input to avoid resource leak
 
     }
 }
