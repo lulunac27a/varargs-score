@@ -23,7 +23,7 @@ def multiplier_log(*args):
     return score
 
 
-values = []
+values_list = []
 
 mode = int(
     input(
@@ -34,12 +34,14 @@ if (mode == 1) | (mode == 2):
     exit_program = False
     while not exit_program:
         valueOf = int(input("Enter a number: "))
-        values.append(int(str(valueOf)[:1]))  # get the first digit of entered value
+        values_list.append(
+            int(str(valueOf)[:1])
+        )  # get the first digit of entered value
         if valueOf == 0:
             exit_program = True
 
 if mode == 1:
-    print("Score: " + str(multiplier(*values)))
+    print("Score: " + str(multiplier(*values_list)))
 
 elif mode == 2:
-    print("Score: " + str(math.floor(multiplier_log(*values))))
+    print("Score: " + str(math.floor(multiplier_log(*values_list))))
