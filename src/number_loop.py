@@ -1,17 +1,39 @@
+"""
+Get total score based on varargs (the method that allows any number of arguments).
+"""
+
 import math
 
 
 def multiplier(*args):
+    """
+    Function to calculate total score that increases the multiplier by 1.
+
+    Parameters:
+    args - list of numbers
+
+    Returns:
+    The total score.
+    """
     score = 0
     multi = 1
     values = list(args)
     for value in values:
-        score += value * multi  # increase multiplier by 1 every time
-        multi += 1
+        score += value * multi
+        multi += 1  # increase multiplier by 1 every time
     return score
 
 
 def multiplier_log(*args):
+    """
+    Function to calculate the total score that increases the multiplier exponentially.
+
+    Parameters:
+    args - list of numbers
+
+    Returns:
+    The total score.
+    """
     score = 0
     multi = 1.0
     values = list(args)
