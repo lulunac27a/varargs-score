@@ -7,7 +7,7 @@ public class NumberLoop {
         int combo = 0;
 
         for (int i = 0; i < args.size(); i++) {
-            if (args.get(i) == 1) {// add score and increase combo if value is 1
+            if (args.get(i) == 1) {// add score and increase combo if the value is 1
                 combo++;
                 score += combo;
             } else if (args.get(i) == 0) {// reset combo to 0
@@ -39,7 +39,7 @@ public class NumberLoop {
 
     public static void main(String[] args) {
         boolean exit = false;
-        ArrayList<Integer> scores = new ArrayList<>();// get list to pass the methods with varargs
+        ArrayList<Integer> scores = new ArrayList<>();// get the list to pass the methods with varargs
         System.out.println("Press 1 for original, 2 for multiplier, 3 for multiplier with exponential growth");
         Scanner sc = new Scanner(System.in);// get input
         int mode = sc.nextInt();// get input for mode

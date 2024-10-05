@@ -6,13 +6,14 @@ import kotlin.math.max
 
 object NumberLoop {
     private fun score(args: ArrayList<Int>): Int {
-        var score = 0 //initialize the values
+        var score = 0 // initialize the values
         var combo = 0
+
         for (i in args.indices) {
-            if (args[i] == 1) { //add score and increase combo if value is 1
+            if (args[i] == 1) { // add score and increase combo if the value is 1
                 combo++
                 score += combo
-            } else if (args[i] == 0) { //reset combo to 0
+            } else if (args[i] == 0) { // reset combo to 0
                 combo = 0
             }
         }
@@ -20,9 +21,9 @@ object NumberLoop {
     }
 
     private fun multiplier(args: ArrayList<Int>): Int {
-        var score = 0 //initialize the values
+        var score = 0 // initialize the values
         var multiplier = 1
-        for (i in args.indices) { //add score and increase multiplier
+        for (i in args.indices) { // add score and increase multiplier
             score += args[i] * multiplier
             multiplier++
         }
@@ -30,9 +31,9 @@ object NumberLoop {
     }
 
     private fun multiplierLog(args: ArrayList<Int>): Double {
-        var score = 0.0 //initialize the values
-        var multiplier = 1.0 //multiplier is exponential
-        for (i in args.indices) { //add score and increase multiplier exponentially
+        var score = 0.0 // initialize the values
+        var multiplier = 1.0 // multiplier is exponential
+        for (i in args.indices) { // add score and increase multiplier exponentially
             score += args[i] * multiplier
             multiplier += multiplier / (1 + ln(multiplier))
         }
@@ -41,17 +42,17 @@ object NumberLoop {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        var exit = 0
-        val scores = ArrayList<Int>() //get list to pass the methods with varargs
+        var exit = false
+        val scores = ArrayList<Int>() //get the list to pass the methods with varargs
         println("Press 1 for original, 2 for multiplier, 3 for multiplier with exponential growth")
         val sc = Scanner(System.`in`) //get input
         val mode = sc.nextInt() //get input for mode
-        while (exit != 1) {
+        while (!exit) {
             if (mode == 1) { //score and combo mode - enter 1 and 2
                 println("Press 1 to increase combo and increase score, 2 to reset combo, 0 to end")
                 val number = sc.nextInt() //get input for 0, 1 or 2
                 if (number == 0) {
-                    exit = 1 //exit the program
+                    exit = true //exit the program
                     println("Score: " + score(scores)) //print the final score
                 }
                 if (number == 1) {
@@ -65,14 +66,14 @@ object NumberLoop {
                 println("Enter 1-9 to add score and increase multiplier, 0 to end")
                 val number = sc.nextInt() //get input and then get the first digit of integer input
                 if (number == 0) {
-                    exit = 1 //exit the program
+                    exit = true //exit the program
                     println("Score: " + multiplier(scores)) //print the final score
                 } else {
                     val value = Character.getNumericValue(
                         abs(
                             max(
-                                1,
-                                number
+                                1.0,
+                                number.toDouble()
                             )
                         ).toString()[0]
                     ) //get the numeric value between 1 and 9
@@ -83,14 +84,14 @@ object NumberLoop {
                 println("Enter 1-9 to add score and increase multiplier, 0 to end")
                 val number = sc.nextInt() //get input and then get the first digit of integer input
                 if (number == 0) {
-                    exit = 1 //exit the program
+                    exit = true //exit the program
                     println("Score: " + multiplierLog(scores)) //print the final score
                 } else {
                     val value = Character.getNumericValue(
                         abs(
                             max(
-                                1,
-                                number
+                                1.0,
+                                number.toDouble()
                             )
                         ).toString()[0]
                     ) //get the numeric value between 1 and 9
@@ -98,5 +99,6 @@ object NumberLoop {
                 }
             }
         }
+        sc.close() //close the scanner input to avoid resource leak
     }
 }
