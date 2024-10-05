@@ -17,7 +17,7 @@ public class NumberLoop {
         return score;
     }
 
-    private static int multiplier(ArrayList<Integer> args) {
+    private static int calculateScoreWithMultiplier(ArrayList<Integer> args) {
         int score = 0;// initialize the values
         int multiplier = 1;
         for (int i = 0; i < args.size(); i++) {// add score and increase multiplier
@@ -27,7 +27,7 @@ public class NumberLoop {
         return score;
     }
 
-    private static double multiplierLog(ArrayList<Integer> args) {
+    private static double calculateScoreWithExponentialMultiplier(ArrayList<Integer> args) {
         double score = 0;// initialize the values
         double multiplier = 1;// multiplier is exponential
         for (int i = 0; i < args.size(); i++) {// add score and increase multiplier exponentially
@@ -63,7 +63,7 @@ public class NumberLoop {
                 int number = sc.nextInt();// get input and then get the first digit of integer input
                 if (number == 0) {
                     exit = true;// exit the program
-                    System.out.println("Score: " + multiplier(scores));// print the final score
+                    System.out.println("Score: " + calculateScoreWithMultiplier(scores));// print the final score
                 } else {
                     int value = Character.getNumericValue(String.valueOf(Math.abs(Math.max(1, number))).charAt(0));// get
                                                                                                                    // the
@@ -81,7 +81,8 @@ public class NumberLoop {
                 int number = sc.nextInt();// get input and then get the first digit of integer input
                 if (number == 0) {
                     exit = true;// exit the program
-                    System.out.println("Score: " + multiplierLog(scores));// print the final score
+                    System.out.println("Score: " + calculateScoreWithExponentialMultiplier(scores));// print the final
+                                                                                                    // score
                 } else {
                     int value = Character.getNumericValue(String.valueOf(Math.abs(Math.max(1, number))).charAt(0));// get
                                                                                                                    // the

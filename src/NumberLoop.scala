@@ -19,7 +19,7 @@ object NumberLoop {
     score
   }
 
-  private def multiplier(args: util.ArrayList[Integer]) = {
+  private def calculateScoreWithMultiplier(args: util.ArrayList[Integer]) = {
     var score = 0 // initialize the values
 
     var multiplier = 1
@@ -30,7 +30,7 @@ object NumberLoop {
     score
   }
 
-  private def multiplierLog(args: util.ArrayList[Integer]) = {
+  private def calculateScoreWithExponentialMultiplier(args: util.ArrayList[Integer]) = {
     var score = 0 // initialize the values
 
     var multiplier = 1 // multiplier is exponential
@@ -72,7 +72,7 @@ object NumberLoop {
         if (number == 0) {
           exit = true //exit the program
 
-          System.out.println("Score: " + multiplier(scores)) //print the final score
+          System.out.println("Score: " + calculateScoreWithMultiplier(scores)) //print the final score
 
         }
         else {
@@ -89,7 +89,7 @@ object NumberLoop {
         if (number == 0) {
           exit = true //exit the program
 
-          System.out.println("Score: " + multiplierLog(scores)) //print the final score
+          System.out.println("Score: " + calculateScoreWithExponentialMultiplier(scores)) //print the final score
 
         }
         else {

@@ -5,7 +5,7 @@ Get total score based on varargs (the method that allows any number of arguments
 import math
 
 
-def multiplier(*args):
+def calculate_score_with_multiplier(*args):
     """
     Function to calculate total score that increases the multiplier by 1.
 
@@ -16,15 +16,15 @@ def multiplier(*args):
     The total score.
     """
     score = 0
-    multi = 1
+    multiplier = 1
     values = list(args)
     for value in values:
-        score += value * multi
-        multi += 1  # increase multiplier by 1 every time
+        score += value * multiplier
+        multiplier += 1  # increase multiplier by 1 every time
     return score
 
 
-def multiplier_log(*args):
+def calculate_score_with_exponential_multiplier(*args):
     """
     Function to calculate the total score that increases the multiplier exponentially.
 
@@ -35,12 +35,12 @@ def multiplier_log(*args):
     The total score.
     """
     score = 0
-    multi = 1.0
+    multiplier = 1.0
     values = list(args)
     for value in values:
-        score += value * multi
-        multi += multi / (
-            1 + math.log(multi)
+        score += value * multiplier
+        multiplier += multiplier / (
+            1 + math.log(multiplier)
         )  # increase multiplier exponentially every time
     return score
 
@@ -55,15 +55,18 @@ mode = int(
 if (mode == 1) | (mode == 2):
     exit_program = False
     while not exit_program:
-        valueOf = int(input("Enter a number: "))
+        value_of = int(input("Enter a number: "))
         values_list.append(
-            int(str(valueOf)[:1])
+            int(str(value_of)[:1])
         )  # get the first digit of entered value
-        if valueOf == 0:
+        if value_of == 0:
             exit_program = True
 
 if mode == 1:
-    print("Score: " + str(multiplier(*values_list)))
+    print("Score: " + str(calculate_score_with_multiplier(*values_list)))
 
 elif mode == 2:
-    print("Score: " + str(math.floor(multiplier_log(*values_list))))
+    print(
+        "Score: "
+        + str(math.floor(calculate_score_with_exponential_multiplier(*values_list)))
+    )

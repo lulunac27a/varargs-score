@@ -20,7 +20,7 @@ object NumberLoop {
         return score
     }
 
-    private fun multiplier(args: ArrayList<Int>): Int {
+    private fun calculateScoreWithMultiplier(args: ArrayList<Int>): Int {
         var score = 0 // initialize the values
         var multiplier = 1
         for (i in args.indices) { // add score and increase multiplier
@@ -30,7 +30,7 @@ object NumberLoop {
         return score
     }
 
-    private fun multiplierLog(args: ArrayList<Int>): Double {
+    private fun calculateScoreWithExponentialMultiplier(args: ArrayList<Int>): Double {
         var score = 0.0 // initialize the values
         var multiplier = 1.0 // multiplier is exponential
         for (i in args.indices) { // add score and increase multiplier exponentially
@@ -67,7 +67,7 @@ object NumberLoop {
                 val number = sc.nextInt() //get input and then get the first digit of integer input
                 if (number == 0) {
                     exit = true //exit the program
-                    println("Score: " + multiplier(scores)) //print the final score
+                    println("Score: " + calculateScoreWithMultiplier(scores)) //print the final score
                 } else {
                     val value = Character.getNumericValue(
                         abs(
@@ -85,7 +85,7 @@ object NumberLoop {
                 val number = sc.nextInt() //get input and then get the first digit of integer input
                 if (number == 0) {
                     exit = true //exit the program
-                    println("Score: " + multiplierLog(scores)) //print the final score
+                    println("Score: " + calculateScoreWithExponentialMultiplier(scores)) //print the final score
                 } else {
                     val value = Character.getNumericValue(
                         abs(
