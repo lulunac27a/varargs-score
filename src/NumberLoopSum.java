@@ -65,13 +65,12 @@ public class NumberLoopSum {
             if (mode == 2) { // score multiplier mode - enter 1 to 9
                 System.out.println(
                         "Enter 1-9 to add score and increase multiplier, 0 to end");
-                int number = sc.nextInt(); // get input and then get the first digit of integer input
-                if (number == 0) {
+                String numberStr = sc.next(); // get input and then get the first digit of integer input
+                if ("0".equals(numberStr)) {
                     exit = true; // exit the program
                     System.out.println("Score: " + calculateScoreWithMultiplier(scores)); // print the final score
                 } else {
                     int sum = 0; // initialize sum to 0
-                    String numberStr = String.valueOf(Math.abs(Math.max(1, number))); // convert number to string
                     for (int i = 0; i < numberStr.length(); i++) { // add the sum of the digits
                         sum += Character.getNumericValue(numberStr.charAt(i)); // get the numeric value between 0 and 9
                     }
@@ -81,14 +80,13 @@ public class NumberLoopSum {
             if (mode == 3) { // score multiplier mode with exponential growth - enter 1 to 9
                 System.out.println(
                         "Enter 1-9 to add score and increase multiplier, 0 to end");
-                int number = sc.nextInt(); // get input and then get the first digit of integer input
-                if (number == 0) {
+                String numberStr = sc.next(); // get input and then get the first digit of integer input
+                if ("0".equals(numberStr)) {
                     exit = true; // exit the program
                     System.out.println(
                             "Score: " + calculateScoreWithExponentialMultiplier(scores)); // print the final score
                 } else {
                     int sum = 0; // initialize sum to 0
-                    String numberStr = String.valueOf(Math.abs(Math.max(1, number))); // convert number to string
                     for (int i = 0; i < numberStr.length(); i++) { // add the sum of the digits
                         sum += Character.getNumericValue(numberStr.charAt(i)); // get the numeric value between 0 and 9
                     }
