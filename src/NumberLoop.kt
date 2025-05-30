@@ -67,13 +67,13 @@ object NumberLoop {
                 if ("0" == numberStr) {
                     exit = true // exit the program
                     println(
-                        "Score: " + calculateScoreWithMultiplier(scores),
+                            "Score: " + calculateScoreWithMultiplier(scores)
                     ) // print the final score
                 } else {
                     val value =
-                        Character.getNumericValue(
-                            numberStr.get(0),
-                        ) // get the numeric value between 1 and 9
+                            Character.getNumericValue(
+                                    numberStr.get(0)
+                            ) // get the numeric value between 1 and 9
                     scores.add(value) // add the score and increase multiplier by 1
                 }
             }
@@ -83,13 +83,13 @@ object NumberLoop {
                 if ("0" == numberStr) {
                     exit = true // exit the program
                     println(
-                        "Score: " + calculateScoreWithExponentialMultiplier(scores),
+                            "Score: " + calculateScoreWithExponentialMultiplier(scores)
                     ) // print the final score
                 } else {
                     val value =
-                        Character.getNumericValue(
-                            numberStr.get(0),
-                        ) // get the numeric value between 1 and 9
+                            Character.getNumericValue(
+                                    numberStr.get(0)
+                            ) // get the numeric value between 1 and 9
                     scores.add(value) // add the score and increase multiplier exponentially
                 }
             }

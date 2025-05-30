@@ -66,15 +66,15 @@ object NumberLoopSum {
                 if ("0" == numberStr) {
                     exit = true // exit the program
                     println(
-                        "Score: " + calculateScoreWithMultiplier(scores),
+                            "Score: " + calculateScoreWithMultiplier(scores)
                     ) // print the final score
                 } else {
                     var sum = 0 // initialize sum to 0
-                    for (i in 0..<numberStr.length) { // add the sum of the digits
+                    for (i in 0 ..< numberStr.length) { // add the sum of the digits
                         sum +=
-                            Character.getNumericValue(
-                                numberStr.get(i),
-                            ) // get the numeric value between 0 and 9
+                                Character.getNumericValue(
+                                        numberStr.get(i)
+                                ) // get the numeric value between 0 and 9
                     }
                     scores.add(sum) // add the score and increase multiplier exponentially
                 }
@@ -85,15 +85,15 @@ object NumberLoopSum {
                 if ("0" == numberStr) {
                     exit = true // exit the program
                     println(
-                        "Score: " + calculateScoreWithExponentialMultiplier(scores),
+                            "Score: " + calculateScoreWithExponentialMultiplier(scores)
                     ) // print the final score
                 } else {
                     var sum = 0 // initialize sum to 0
-                    for (i in 0..<numberStr.length) { // add the sum of the digits
+                    for (i in 0 ..< numberStr.length) { // add the sum of the digits
                         sum +=
-                            Character.getNumericValue(
-                                numberStr.get(i),
-                            ) // get the numeric value between 0 and 9
+                                Character.getNumericValue(
+                                        numberStr.get(i)
+                                ) // get the numeric value between 0 and 9
                     }
                     scores.add(sum) // add the score and increase multiplier exponentially
                 }
