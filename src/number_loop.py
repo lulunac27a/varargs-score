@@ -1,7 +1,6 @@
 """
 Get total score based on varargs (the method that allows any number of arguments).
 """
-
 import math
 
 
@@ -45,7 +44,7 @@ def calculate_score_with_exponential_multiplier(*args):
     return score
 
 
-values_list = []
+values_list: list[int] = []
 
 mode = int(
     input(
