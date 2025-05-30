@@ -43,11 +43,11 @@ public class NumberLoopSum {
         boolean exit = false;
         ArrayList<Integer> scores = new ArrayList<>(); // get the list to pass the methods with varargs
         System.out.println(
-                "Press 1 for original, 2 for multiplier, 3 for multiplier with exponential growth");
+                "Press 1 for original, 2 for a multiplier, 3 for a multiplier with exponential growth");
         Scanner sc = new Scanner(System.in); // get input
         int mode = sc.nextInt(); // get input for mode
         while (!exit) {
-            if (mode == 1) { // score and combo mode - enter 1 and 2
+            if (mode == 1) { // score and combo mode — enter 1 and 2
                 System.out.println(
                         "Press 1 to increase combo and increase score, 2 to reset combo, 0 to end");
                 int number = sc.nextInt(); // get input for 0, 1 or 2
@@ -77,7 +77,7 @@ public class NumberLoopSum {
                     scores.add(sum); // add the score and increase multiplier exponentially
                 }
             }
-            if (mode == 3) { // score multiplier mode with exponential growth - enter 1 to 9
+            if (mode == 3) { // score multiplier mode with exponential growth — enter 1 to 9
                 System.out.println(
                         "Enter 1-9 to add score and increase multiplier, 0 to end");
                 String numberStr = sc.next(); // get input and then get the first digit of integer input
