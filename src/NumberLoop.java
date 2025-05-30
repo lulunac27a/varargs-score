@@ -50,7 +50,8 @@ public class NumberLoop {
             if (mode == 1) { // score and combo mode - enter 1 and 2
                 System.out.println(
                         "Press 1 to increase combo and increase score, 2 to reset combo, 0 to end");
-                int number = sc.nextInt(); // get input for 0, 1 or 2
+                String numberStr = sc.next(); // get input for 0, 1 or 2
+                int number = Integer.parseInt(numberStr);
                 if (number == 0) {
                     exit = true; // exit the program
                     System.out.println("Score: " + score(scores)); // print the final score
@@ -65,29 +66,25 @@ public class NumberLoop {
             if (mode == 2) { // score multiplier mode - enter 1 to 9
                 System.out.println(
                         "Enter 1-9 to add score and increase multiplier, 0 to end");
-                int number = sc.nextInt(); // get input and then get the first digit of integer input
-                if (number == 0) {
+                String numberStr = sc.next(); // get input and then get the first digit of integer input
+                if ("0".equals(numberStr)) {
                     exit = true; // exit the program
                     System.out.println("Score: " + calculateScoreWithMultiplier(scores)); // print the final score
                 } else {
-                    int value = Character.getNumericValue(
-                            String.valueOf(Math.abs(Math.max(1, number))).charAt(0)); // get the numeric value between 1
-                                                                                      // and 9
+                    int value = Character.getNumericValue(numberStr.charAt(0)); // get the numeric value between 1 and 9
                     scores.add(value); // add the score and increase multiplier by 1
                 }
             }
             if (mode == 3) { // score multiplier mode with exponential growth - enter 1 to 9
                 System.out.println(
                         "Enter 1-9 to add score and increase multiplier, 0 to end");
-                int number = sc.nextInt(); // get input and then get the first digit of integer input
-                if (number == 0) {
+                String numberStr = sc.next(); // get input and then get the first digit of integer input
+                if ("0".equals(numberStr)) {
                     exit = true; // exit the program
                     System.out.println(
                             "Score: " + calculateScoreWithExponentialMultiplier(scores)); // print the final score
                 } else {
-                    int value = Character.getNumericValue(
-                            String.valueOf(Math.abs(Math.max(1, number))).charAt(0)); // get the numeric value between 1
-                                                                                      // and 9
+                    int value = Character.getNumericValue(numberStr.charAt(0)); // get the numeric value between 1 and 9
                     scores.add(value); // add the score and increase multiplier exponentially
                 }
             }
